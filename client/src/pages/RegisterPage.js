@@ -1,3 +1,49 @@
+// import React, { useState } from 'react';
+
+
+// export default function RegisterPage() {
+//     const [username, setUsername] = useState("");
+//     const [password, setPassword] = useState("");
+
+
+//     async function register(ev) {
+//         ev.preventDefault();
+        
+//      const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
+//             method: "POST",
+//             body: JSON.stringify({ username, password }),
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//         });
+//        if (response.status === 200) {
+            
+//             alert('Register successful');
+//         } else {
+//             alert('Register failed');
+//         }
+    
+//     }
+
+//     return (
+
+//             <form className="register" onSubmit={register}>
+//             <h1>Register</h1>
+
+//                 <input type="text" placeholder="Username"
+//                  value={username}
+//                   onChange={ev => setUsername(ev.target.value)}/>
+                  
+//                 <input type="password" placeholder="Password"
+//                  value={password} 
+//                  onChange={ev => setPassword(ev.target.value)}/>
+
+//                 <button>Register</button>
+//             </form>
+      
+//     );
+// }
+
 import React, { useState } from 'react';
 
 
@@ -8,23 +54,22 @@ export default function RegisterPage() {
 
     async function register(ev) {
         ev.preventDefault();
-        await fetch("http://localhost:4000/register", {
+        
+     const response = await fetch("http://localhost:4000/register", {
             method: "POST",
             body: JSON.stringify({ username, password }),
             headers: {
                 "Content-Type": "application/json",
             },
-        })
-            // .then((res) => res.json())
-            // .then((data) => {
-            //     if (data.success) {
-            //         alert("Registered successfully!");
-            //     } else {
-            //         alert("Registration failed!");
-            //     }
-            // });
+        });
+       if (response.status === 200) {
+            
+            alert('register successful');
+        } else {
+            alert('register failed');
+        }
+    
     }
-
 
     return (
 
